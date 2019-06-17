@@ -118,7 +118,7 @@ class _BottomNavyBarState extends State<BottomNavyBar> {
         : backgroundColor;
 
     return Container(
-      width: this.width ? this.width : MediaQuery.of(context).size.width,
+      width: (this.width != null) ? this.width : MediaQuery.of(context).size.width,
       height: this.height,
       padding: EdgeInsets.only(left: 8, right: 8, top: 12, bottom: 12),
       decoration: BoxDecoration(color: backgroundColor),
