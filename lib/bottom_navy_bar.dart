@@ -6,6 +6,8 @@ import 'package:flutter/widgets.dart';
 // @ts-ignore
 class BottomNavyBar extends StatefulWidget {
   int selectedIndex;
+  final double width;
+  final double height;
   final double iconSize;
   final Color backgroundColor;
   final List<BottomNavyBarItem> items;
@@ -14,6 +16,8 @@ class BottomNavyBar extends StatefulWidget {
   BottomNavyBar({
     Key key,
     this.selectedIndex = 0,
+    this.width = MediaQuery.of(context).size.width,
+    this.height = 64,
     this.iconSize = 24,
     this.backgroundColor,
     @required this.items,
@@ -27,6 +31,8 @@ class BottomNavyBar extends StatefulWidget {
   @override
   _BottomNavyBarState createState() => _BottomNavyBarState(
         items: items,
+        width: width,
+        height: height,
         backgroundColor: backgroundColor,
         iconSize: iconSize,
         onItemSelected: onItemSelected,
@@ -35,6 +41,8 @@ class BottomNavyBar extends StatefulWidget {
 
 class _BottomNavyBarState extends State<BottomNavyBar> {
   final double iconSize;
+  final double width;
+  final double height;
   Color backgroundColor;
   List<BottomNavyBarItem> items;
 
@@ -47,6 +55,8 @@ class _BottomNavyBarState extends State<BottomNavyBar> {
 
   _BottomNavyBarState({
     @required this.items,
+    this.width,
+    this.height,
     this.backgroundColor,
     this.iconSize,
     @required this.onItemSelected,
@@ -108,8 +118,8 @@ class _BottomNavyBarState extends State<BottomNavyBar> {
         : backgroundColor;
 
     return Container(
-      width: MediaQuery.of(context).size.width,
-      height: 64,
+      width: this.width,
+      height: this.height,
       padding: EdgeInsets.only(left: 8, right: 8, top: 12, bottom: 12),
       decoration: BoxDecoration(color: backgroundColor),
       child: Row(
