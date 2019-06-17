@@ -16,7 +16,7 @@ class BottomNavyBar extends StatefulWidget {
   BottomNavyBar({
     Key key,
     this.selectedIndex = 0,
-    this.width = MediaQuery.of(context).size.width,
+    this.width,
     this.height = 64,
     this.iconSize = 24,
     this.backgroundColor,
@@ -118,7 +118,7 @@ class _BottomNavyBarState extends State<BottomNavyBar> {
         : backgroundColor;
 
     return Container(
-      width: this.width,
+      width: this.width ? this.width : MediaQuery.of(context).size.width,
       height: this.height,
       padding: EdgeInsets.only(left: 8, right: 8, top: 12, bottom: 12),
       decoration: BoxDecoration(color: backgroundColor),
