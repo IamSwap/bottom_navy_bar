@@ -110,6 +110,9 @@ class _BottomNavyBarState extends State<BottomNavyBar> {
     return Container(
       width: MediaQuery.of(context).size.width,
       height: 64,
+      constraints: BoxConstraints(
+        maxWidth: 600,
+      ),
       padding: EdgeInsets.only(left: 8, right: 8, top: 12, bottom: 12),
       decoration: BoxDecoration(color: backgroundColor),
       child: Row(
