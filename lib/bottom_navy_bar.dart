@@ -84,7 +84,7 @@ class _BottomNavyBarState extends State<BottomNavyBar> {
                             ? item.activeColor
                             : item.inactiveColor,
                   ),
-                  child: item.icon,
+                  child: isSelected ? item.activeIcon ?? item.icon : item.icon,
                 ),
               ),
               isSelected
@@ -137,6 +137,7 @@ class _BottomNavyBarState extends State<BottomNavyBar> {
 class BottomNavyBarItem {
   final Icon icon;
   final Text title;
+  final Icon activeIcon;
   final Color activeColor;
   final Color inactiveColor;
   final Color backgroundColor;
@@ -144,6 +145,7 @@ class BottomNavyBarItem {
   BottomNavyBarItem(
       {@required this.icon,
       @required this.title,
+      this.activeIcon,
       this.activeColor = Colors.blue,
       this.inactiveColor,
       this.backgroundColor}) {
